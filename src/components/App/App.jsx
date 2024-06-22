@@ -10,7 +10,8 @@ export default function App() {
   const [feedback, feedbackSet] = useState(() => {
     const savedFeedback = window.localStorage.getItem("saved-feedback");  
     const objectFeedback = JSON.parse(savedFeedback);
-    const { good, neutral, bad }=objectFeedback.feedback;
+    const localeObject = objectFeedback.feedback;
+    const { good, neutral, bad } = localeObject;
     
     if (good||neutral||bad) {
       return(
