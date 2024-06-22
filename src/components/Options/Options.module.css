@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+button {
+  font-size: 22px;
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+}
