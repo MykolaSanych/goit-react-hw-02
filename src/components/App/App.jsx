@@ -8,8 +8,8 @@ import css from "./App.module.css"
 
 export default function App() {
   const [feedback, feedbackSet] = useState(() => {
-    const savedFeedback = JSON.parse(window.localStorage.getItem("saved-feedback"));  
-    const objectFeedback = savedFeedback.feedback;
+    const savedFeedback = window.localStorage.getItem("saved-feedback");  
+    const objectFeedback = JSON.parse(savedFeedback).feedback;
     const { good, neutral, bad }=objectFeedback;
     
     if (good||neutral||bad) {
