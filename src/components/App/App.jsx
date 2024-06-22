@@ -8,12 +8,9 @@ import css from "./App.module.css"
 
 export default function App() {
   const [feedback, feedbackSet] = useState(() => {
-    // Зчитуємо значення за ключем
-    const savedFeedback =JSON.parse( window.localStorage.getItem("saved-feedback"));
-
-    // Якщо там щось є, повертаємо це 
-    // значення як початкове значення стану
-    const { good, neutral, bad }=savedFeedback.feedback;
+    const savedFeedback = JSON.parse(window.localStorage.getItem("saved-feedback"));  
+    const objectFeedback = savedFeedback.feedback;
+    const { good, neutral, bad }=objectFeedback;
     
     if (good||neutral||bad) {
       return(
