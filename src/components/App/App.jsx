@@ -9,12 +9,10 @@ import css from "./App.module.css"
 export default function App() {
   const [feedback, feedbackSet] = useState(() => {
     const savedFeedback = window.localStorage.getItem("saved-feedback");  
-    const objectFeedback = JSON.parse(savedFeedback);
-    const localeObject = objectFeedback.feedback;
-    const { good, neutral, bad } = localeObject;
-    
-    if (good||neutral||bad) {
-      return(
+    if (savedFeedback !== null) {
+      const objectFeedback = JSON.parse(savedFeedback);
+      const { good, neutral, bad } = objectFeedback.feedback;
+      return (
         {
           good,
           neutral,
@@ -22,11 +20,13 @@ export default function App() {
         })
         
     }
-    return {
-      good: 0,
-      neutral: 0,
-      bad: 0
-    };
+    else {
+      return {
+        good: 0,
+        neutral: 0,
+        bad: 0
+      };
+    }
   })
 
 
