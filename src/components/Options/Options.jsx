@@ -1,7 +1,7 @@
 import css from "./Options.module.css"
 export default function Options({ updateFeedback, totalFeedback }) {
     return (
-        <div className={css.list}>
+        
             <ul onClick={updateFeedback} className={css.list}>
                  <li>
                     <button name ="good">Good</button>
@@ -16,6 +16,6 @@ export default function Options({ updateFeedback, totalFeedback }) {
         
              </ul>
            
-        </div>
+        
     )
 }
