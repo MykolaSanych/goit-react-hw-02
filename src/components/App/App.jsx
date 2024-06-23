@@ -35,26 +35,37 @@ export default function App() {
   }, [feedback]);
 
  
-  const updateFeedback = feedbackType => {
-    const type = feedbackType.target.getAttribute('name');
-    if (type === "reset") {
-      feedbackSet({
-        ...feedback,
-          good: 0,
-          neutral: 0,
-          bad:0,
-          }
-        )
-    }
-    else {
-      feedbackSet({
-     
-        ...feedback,
-        [type]: feedback[type] + 1,
+  const updateFeedback = (feedbackType) => {
+    console.log(feedbackType);
+    feedbackSet({
+      
+      ...feedback,
+      [feedbackType]: feedback[feedbackType]+1,
       }
       )
     };
+
+  
+  
+  const feedbackGood = () => {
+    updateFeedback("good");
   };
+  const feedbackNeutral = () => {
+    updateFeedback("neutral");
+  };
+  const feedbackBad = () => {
+    updateFeedback("bad");
+  };
+  const reset = () => {
+    feedbackSet({
+      ...feedback,
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    }
+    )
+  };
+
 
 
   const { good, neutral, bad } = feedback;
@@ -65,7 +76,7 @@ export default function App() {
   return (
     <div className={css.box}>
       <Description />
-      <Options updateFeedback={updateFeedback} totalFeedback={ totalFeedback} />
+      <Options feedbackGood = {feedbackGood} feedbackNeutral = {feedbackNeutral} feedbackBad = {feedbackBad} reset = {reset} totalFeedback={ totalFeedback} />
       {(totalFeedback) ? <Feedback feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={ positiveFeedback} />:<Notification/> }
     </div>
   
