@@ -36,7 +36,6 @@ export default function App() {
 
  
   const updateFeedback = (feedbackType) => {
-    console.log(feedbackType);
     feedbackSet({
       
       ...feedback,
